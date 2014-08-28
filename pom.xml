@@ -6,7 +6,7 @@
     <artifactId>akka-fuse-test</artifactId>
     <groupId>com.github.dnvriend</groupId>
     <version>1.0.0</version>
-    <packaging>jar</packaging>
+    <packaging>bundle</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,12 +26,32 @@
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <version>${scala.version}</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-osgi_2.11</artifactId>
             <version>${akka.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scalikejdbc</groupId>
+            <artifactId>scalikejdbc_2.11</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.1-901.jdbc4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.compendium</artifactId>
+            <version>4.3.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>4.3.1</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -75,6 +95,7 @@
                             *;resolution:=optional
                         </Import-Package>
                         <Embed-Transitive>true</Embed-Transitive>
+                        <Embed-Dependency>*;scope=compile</Embed-Dependency>
                     </instructions>
                 </configuration>
             </plugin>

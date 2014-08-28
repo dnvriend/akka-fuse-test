@@ -43,6 +43,16 @@
             <version>9.1-901.jdbc4</version>
         </dependency>
         <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-persistence-experimental_2.11</artifactId>
+            <version>${akka.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.dnvriend</groupId>
+            <artifactId>akka-persistence-jdbc_2.11</artifactId>
+            <version>1.0.4</version>
+        </dependency>
+        <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.compendium</artifactId>
             <version>4.3.1</version>
@@ -89,7 +99,7 @@
                         <Bundle-Name>${project.groupId}.${project.artifactId}</Bundle-Name>
                         <Bundle-Description>${project.description}</Bundle-Description>
                         <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
-                        <Private-Package>nl.*,com.*</Private-Package>
+                        <Private-Package>com.dnvriend.github.*</Private-Package>
                         <Bundle-Activator>com.github.dnvriend.Activator</Bundle-Activator>
                         <Import-Package>
                             *;resolution:=optional
@@ -156,29 +166,6 @@
                         <goals>
                             <goal>testCompile</goal>
                         </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.5</version>
-                <executions>
-                    <execution>
-                        <id>attach-artifacts</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>attach-artifact</goal>
-                        </goals>
-                        <configuration>
-                            <artifacts>
-                                <artifact>
-                                    <file>target/classes/feature/feature.xml</file>
-                                    <type>xml</type>
-                                    <classifier>features</classifier>
-                                </artifact>
-                            </artifacts>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
